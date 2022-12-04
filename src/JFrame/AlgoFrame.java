@@ -2,6 +2,7 @@ package JFrame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
 
 public class AlgoFrame extends JFrame {
     private int canvasWidth;
@@ -46,7 +47,21 @@ public class AlgoFrame extends JFrame {
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
 
-            g.drawOval(0, 0, 100, 100);
+            Graphics2D g2d = (Graphics2D) g;
+
+            RenderingHints hints = new RenderingHints(
+                    RenderingHints.KEY_ANTIALIASING,
+                    RenderingHints.VALUE_ANTIALIAS_ON);
+
+            g2d.addRenderingHints(hints);
+
+            AlgoVisHelper.setStrokeWith(g2d, 5);
+
+            AlgoVisHelper.setColor(g2d, Color.GREEN);
+            AlgoVisHelper.fillCircle(g2d, canvasWidth / 2, canvasHeight / 2, 200);
+
+            AlgoVisHelper.setColor(g2d, Color.GRAY);
+            AlgoVisHelper.strokeCircle(g2d, canvasWidth / 2, canvasHeight / 2, 200);
         }
 
         @Override

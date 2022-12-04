@@ -7,7 +7,6 @@ public class Main {
         EventQueue.invokeLater(() -> {
             AlgoFrame frame = new AlgoFrame("JFrame", 650, 500);
             // AlgoFrame frame = new AlgoFrame("JFrame");
-            System.out.println(frame.getCanvasWidth());
         });
     }
 }
